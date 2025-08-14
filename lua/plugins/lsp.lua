@@ -8,8 +8,8 @@ local on_attach_lsp = function(client, buffer)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
     vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, opts("Format buffer"))
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("Code action"))
-    vim.keymap.set("n", "<leader>cp", vim.lsp.buf.hover, opts("Code problems"))
     vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts("Rename symbol"))
+    vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts("Open diagnostics"))
 
     if client.supports_method("textDocument/formatting") then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = buffer })
